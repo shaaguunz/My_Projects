@@ -24,6 +24,12 @@ text_input = st.text_area("Enter text to classify")
 if st.button("Classify"):
     if text_input:
         prediction = classify_text(text_input)
-        st.write(f"Prediction: {prediction}")
+        if prediction==2:
+            st.write("Prediction: This review is positive")
+        elif prediction==1:
+            st.write("Prediction: This review is neutral")
+        else:
+            st.write("Prediction: This review is negative")
+    
     else:
         st.write("Please enter some text to classify.")
